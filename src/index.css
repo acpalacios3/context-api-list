@@ -9,6 +9,19 @@
     font-size: 14px;
 }
 
+.container-input button {
+  padding: 3px 8px;
+  border: 1px solid #2563eb;
+  border-radius: 5px;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.container-input button:hover {
+  background-color: #1d4ed8;
+}
+
 
 .container-items-list {
   max-width: 600px;
@@ -50,4 +63,38 @@ width: 100%;
 
 .todo-item button {
   margin-left: auto;
+}
+
+.clear-completed {
+  color: #37b7ee;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-completed:hover {
+  text-decoration: underline;
+}
+
+
+.todo-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.todo-filters button {
+  padding: 8px 18px;
+  border: 1px solid #64748b;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+}
+
+.todo-filters button.active {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: white;
 }
