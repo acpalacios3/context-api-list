@@ -41,12 +41,42 @@ const toggleTodo = (id) => {
     })
   );
   console.log("toggleTodo:", id);
+  console.log("toggleTodo",todos);
+};
+
+
+// function delete an item from todo
+  const deleteTodo = (id) => {
+
+    setTodos(prevTodos =>
+      prevTodos.filter(todo => todo.id !== id)
+    );
+    console.log("deleteTodo",todos);
+  };
+
+// function edit item 
+  const editTodo = (id, newText) => {
+
+  setTodos(prevTodos => prevTodos.map(todo => {
+            if (todo.id === id) {
+                return {
+                ...todo,
+                text: newText
+                };
+            }
+
+      return todo;
+    })
+  );
+   console.log("editTodo",todos);
+
 };
 
 
 
+
 return (
-  <TodoContext.Provider value={{todos, addTodo, toggleTodo}}>
+  <TodoContext.Provider value={{todos, addTodo, toggleTodo, deleteTodo,editTodo}}>
     {children}
   </TodoContext.Provider>
 );
