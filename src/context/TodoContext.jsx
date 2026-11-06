@@ -25,8 +25,28 @@ export function TodoProvider({ children }) {
   console.log("newTodo",newTodo);
 }; 
 
+
+// function change the status of an item
+const toggleTodo = (id) => {
+
+  setTodos(prevTodos => prevTodos.map(todo => {
+
+      if (todo.id === id) {
+        return {...todo,
+          completed: !todo.completed
+        };
+      }
+
+      return todo;
+    })
+  );
+  console.log("toggleTodo:", id);
+};
+
+
+
 return (
-  <TodoContext.Provider value={{todos, addTodo}}>
+  <TodoContext.Provider value={{todos, addTodo, toggleTodo}}>
     {children}
   </TodoContext.Provider>
 );

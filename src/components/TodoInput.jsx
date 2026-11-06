@@ -3,7 +3,7 @@ import { TodoContext } from "../context/TodoContext";
 
 export default function TestTodos() {
 
-  const { todos, addTodo} = useContext(TodoContext);
+  const { todos, addTodo, toggleTodo} = useContext(TodoContext);
 
   return (
     <div>
@@ -11,6 +11,10 @@ export default function TestTodos() {
 
       <button onClick={() => addTodo("Study React")}>
         Add Todo
+      </button>
+
+      <button onClick={() => toggleTodo(1)}>
+        Toggle Todo 1
       </button>
       
     </div>
