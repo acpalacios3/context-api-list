@@ -82,8 +82,6 @@ const clearCompleted = () => {
 };
 
 
-
-
 return (
   <TodoContext.Provider value={{todos, addTodo, toggleTodo, deleteTodo,editTodo,clearCompleted}}>
     {children}
