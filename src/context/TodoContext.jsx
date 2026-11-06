@@ -72,11 +72,20 @@ const toggleTodo = (id) => {
 
 };
 
+// delete completed items from todo
+const clearCompleted = () => {
+
+  setTodos(prevTodos =>
+    prevTodos.filter(todo => !todo.completed)
+  );
+
+};
+
 
 
 
 return (
-  <TodoContext.Provider value={{todos, addTodo, toggleTodo, deleteTodo,editTodo}}>
+  <TodoContext.Provider value={{todos, addTodo, toggleTodo, deleteTodo,editTodo,clearCompleted}}>
     {children}
   </TodoContext.Provider>
 );
