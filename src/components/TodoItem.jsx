@@ -7,65 +7,65 @@ export default function TodoItem({ todo }) {
 
     const [isEditing, setIsEditing] = useState(false);
     const [editText, setEditText] = useState(todo.text);
-    
+
     // funcion edit item
     const handleSave = () => {
-    if (editText.trim() === "") {
-      setEditText(todo.text);
-      setIsEditing(false);
-      return;
-    }
+        if (editText.trim() === "") {
+            setEditText(todo.text);
+            setIsEditing(false);
+            return;
+        }
 
-    editTodo(todo.id, editText);
-    setIsEditing(false);
-  };
+        editTodo(todo.id, editText);
+        setIsEditing(false);
+    };
 
-//   function cancel Edit
-  const handleCancel = () => {
-    setEditText(todo.text);
-    setIsEditing(false);
-  };
+    //   function cancel Edit
+    const handleCancel = () => {
+        setEditText(todo.text);
+        setIsEditing(false);
+    };
 
- 
-  return (
-    <li className="todo-item">
-       <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => toggleTodo(todo.id)}
-      />
 
-      {isEditing ? (
-        <input
-          type="text"
-          value={editText}
-          autoFocus
-          onChange={(e) => setEditText(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSave();
-            }
+    return (
+        <li className="todo-item">
+            <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => toggleTodo(todo.id)}
+            />
 
-            if (e.key === "Escape") {
-              handleCancel();
-            }
-          }}
-        />
-      ) : (
-        <span>{todo.text}</span>
-      )}
+            {isEditing ? (
+                <input
+                    type="text"
+                    value={editText}
+                    autoFocus
+                    onChange={(e) => setEditText(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            handleSave();
+                        }
 
-      {!isEditing && (
-        <button onClick={() => setIsEditing(true)}>
-          Edit
-        </button>
-      )}
+                        if (e.key === "Escape") {
+                            handleCancel();
+                        }
+                    }}
+                />
+            ) : (
+                <span>{todo.text}</span>
+            )}
 
-      <button onClick={() => deleteTodo(todo.id)}>
-        Delete
-      </button>
+            {!isEditing && (
+                <button onClick={() => setIsEditing(true)}>
+                    Edit
+                </button>
+            )}
 
-    </li>
-  );
+            <button onClick={() => deleteTodo(todo.id)}>
+                Delete
+            </button>
+
+        </li>
+    );
 
 }

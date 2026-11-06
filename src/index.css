@@ -1,12 +1,16 @@
+.app-title {
+  text-align: center;
+}
+
 .container-input {
-    display: block;
-    max-width: 600px;
-    padding: 12px;
-    margin: 30px auto;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+  display: block;
+  max-width: 600px;
+  padding: 12px;
+  margin: 30px auto;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 .container-input button {
@@ -34,8 +38,8 @@
 
 
 .items-list {
- 
-width: 100%;
+
+  width: 100%;
   padding: 16px 0 16px 15px;
   margin: 20px 0;
   list-style: none;
@@ -97,4 +101,45 @@ width: 100%;
   background-color: #2563eb;
   border-color: #2563eb;
   color: white;
+}
+
+
+.app {
+  min-height: 100vh;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Theme */
+.app.light {
+  background-color: #E8EDF3;
+  color: #263445;
+}
+
+/* Dark Theme */
+.app.dark {
+  background-color: #252525;
+  color: #F5F5F5;
+}
+
+/* Theme Button */
+.theme-button {
+
+  display: block;
+  margin: 0 auto 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.app.light .theme-button {
+  background-color: #64748B;
+  color: white;
+}
+
+.app.dark .theme-button {
+  background-color: #FACC15;
+  color: #252525;
 }

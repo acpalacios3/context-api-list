@@ -1,92 +1,100 @@
 import { createContext, useState } from "react";
 
+import useLocalStorage from "../hooks/useLocalStorage";
+
 // create Context
 export const TodoContext = createContext();
 
 // create Provider
 export function TodoProvider({ children }) {
+
     //    todos is array items and setTodos is function
-      const [todos, setTodos] = useState([]);
+    //   const [todos, setTodos] = useState([]);
+
+    //  "todos": The key where the data is stored in localStorage.
+    //  todos: The variable that contains the array of tasks in React.
+    const [todos, setTodos] = useLocalStorage("todos", []);
 
 
-//  function that adds items to the new array
-  const addTodo = (text) => {
+
+    //  function that adds items to the new array
+    const addTodo = (text) => {
 
         const newTodo = {
             id: todos.length > 0
-            ? todos[todos.length - 1].id + 1
-            : 1,
+                ? todos[todos.length - 1].id + 1
+                : 1,
             text: text,
             completed: false
-  };
-
-  
-  setTodos(prevTodos => [...prevTodos, newTodo]);
-  console.log("newTodo",newTodo);
-}; 
-
-
-// function change the status of an item
-const toggleTodo = (id) => {
-
-  setTodos(prevTodos => prevTodos.map(todo => {
-
-      if (todo.id === id) {
-        return {...todo,
-          completed: !todo.completed
         };
-      }
-
-      return todo;
-    })
-  );
-  console.log("toggleTodo:", id);
-  console.log("toggleTodo",todos);
-};
 
 
-// function delete an item from todo
-  const deleteTodo = (id) => {
+        setTodos(prevTodos => [...prevTodos, newTodo]);
+        console.log("newTodo", newTodo);
+    };
 
-    setTodos(prevTodos =>
-      prevTodos.filter(todo => todo.id !== id)
-    );
-    console.log("deleteTodo",todos);
-  };
 
-// function edit item 
-  const editTodo = (id, newText) => {
+    // function change the status of an item
+    const toggleTodo = (id) => {
 
-  setTodos(prevTodos => prevTodos.map(todo => {
+        setTodos(prevTodos => prevTodos.map(todo => {
+
             if (todo.id === id) {
                 return {
-                ...todo,
-                text: newText
+                    ...todo,
+                    completed: !todo.completed
                 };
             }
 
-      return todo;
-    })
-  );
-   console.log("editTodo",todos);
-
-};
-
-// delete completed items from todo
-const clearCompleted = () => {
-
-  setTodos(prevTodos =>
-    prevTodos.filter(todo => !todo.completed)
-  );
-
-};
+            return todo;
+        })
+        );
+        console.log("toggleTodo:", id);
+        console.log("toggleTodo", todos);
+    };
 
 
-return (
-  <TodoContext.Provider value={{todos, addTodo, toggleTodo, deleteTodo,editTodo,clearCompleted}}>
-    {children}
-  </TodoContext.Provider>
-);
+    // function delete an item from todo
+    const deleteTodo = (id) => {
+
+        setTodos(prevTodos =>
+            prevTodos.filter(todo => todo.id !== id)
+        );
+        console.log("deleteTodo", todos);
+    };
+
+    // function edit item 
+    const editTodo = (id, newText) => {
+
+        setTodos(prevTodos => prevTodos.map(todo => {
+            if (todo.id === id) {
+                return {
+                    ...todo,
+                    text: newText
+                };
+            }
+
+            return todo;
+        })
+        );
+        console.log("editTodo", todos);
+
+    };
+
+    // delete completed items from todo
+    const clearCompleted = () => {
+
+        setTodos(prevTodos =>
+            prevTodos.filter(todo => !todo.completed)
+        );
+
+    };
+
+
+    return (
+        <TodoContext.Provider value={{ todos, addTodo, toggleTodo, deleteTodo, editTodo, clearCompleted }}>
+            {children}
+        </TodoContext.Provider>
+    );
 
 }
-  
