@@ -24,6 +24,7 @@ export default function TodoList() {
 
     //   count the items whose completed status is true
     const completedCount = todos.filter(todo => todo.completed).length;
+    const itemsLeft = todos.filter(todo => !todo.completed).length;
 
     return (
         <div>
@@ -61,11 +62,18 @@ export default function TodoList() {
                 </ul>
 
             </div>
-            <span className="clear-completed"
-                onClick={clearCompleted}
-            >
-                Clear Completed ({completedCount})
-            </span>
+
+            <div className="Todo-footer">
+                <span className="clear-completed"
+                    onClick={clearCompleted}
+                >
+                    Clear Completed ({completedCount})
+                </span>
+
+                <p className="items-left">
+                    {itemsLeft} items left
+                </p> 
+            </div>    
 
         </div>
     );

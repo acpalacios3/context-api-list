@@ -145,3 +145,18 @@
   background-color: #FACC15;
   color: #252525;
 }
+
+
+.todo-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.items-left {
+  display: inline-block;
+  margin: 0;
+}
