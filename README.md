@@ -1,16 +1,53 @@
-# React + Vite
+## 1.  Project Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Todo App is a React application that allows users to manage a list of tasks (To-Do List).
+The application uses Context API to share information between components and localStorage to save user data in the browser.
 
-Currently, two official plugins are available:
+## 2. Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Add Todo: Add new tasks.
+* Complete Todo: Mark tasks as completed.
+* Edit Todo: Modify an existing task.
+* Delete Todo: Remove a task.
+* Filter Todos: Filter tasks by status (All, Active, and Completed).
+* Clear Completed: Remove all completed tasks.
+* Dark / Light Mode: Switch between dark and light themes.
+* Persistence: Save tasks and the selected theme in localStorage.
 
-## React Compiler
+## 3. Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React,JavaScript,Context API,React Hooks, CSS: Style the application.
+* localStorage: Store data in the browser.
+* Vite: Development tool used to run and build the project.
 
-## Expanding the Oxlint configuration
+## 4. Concepts:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Context API allows components to share information without manually passing props through multiple component levels.
+1. TodoContext: Manages the tasks and their related functions.
+2. ThemeContext: Manages the application's visual theme.
+
+Custom Hooks are reusable functions that help organize and share application logic.
+
+1. useTodos: Provides access to the Todo Context.
+2. useTheme: Provides access to the Theme Context.
+3. useLocalStorage: Synchronizes React state with the browser's local storage.
+
+Persistence Layer
+
+The application uses localStorage to preserve information even when the user refreshes or closes the browser.
+
+The application stores two values:
+* items: The list of tasks.
+* theme: The selected theme (light or dark).
+When the application starts, it attempts to retrieve the previously saved data.
+
+ ## 5. Installation and Execution
+
+* Install the dependencies:
+npm install
+
+* Start the development server:
+npm run dev
+
+* Open the local URL provided by Vite in your browser.
+
