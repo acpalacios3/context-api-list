@@ -32,18 +32,19 @@ export default function TodoInput() {
             <button className="theme-button"
                 type="button"
                 onClick={toggleTheme}>
-                {theme === "light" ? "Dark Mode" : "Light Mode"}
+                {theme === "light" ? "Switch to Dark" : "Switch to Light"}
             </button>
 
             <div className="container-input">
-                <input
+                <input className="item-input"
                     type="text"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="What needs to be done?"
                 />
 
-                <button type="submit">
+                <button className="add-button"
+                    type="submit">
                     Add Todo
                 </button>
 

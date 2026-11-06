@@ -57,12 +57,12 @@ export default function TodoItem({ todo }) {
 
             {!isEditing && (
                 <button onClick={() => setIsEditing(true)}>
-                    Edit
+                    ✏️
                 </button>
             )}
 
             <button onClick={() => deleteTodo(todo.id)}>
-                Delete
+                🗑️
             </button>
 
         </li>

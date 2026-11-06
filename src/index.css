@@ -1,16 +1,31 @@
 .app-title {
   text-align: center;
+  font-size: 30px;
+  font-weight: bold;
 }
 
-.container-input {
-  display: block;
-  max-width: 600px;
-  padding: 12px;
-  margin: 30px auto;
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
+ .container-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 600px;
+    max-width: 700px;
+    flex-direction: row;
+    align-items: stretch;
+  
+} 
+ 
+.item-input {
+    width: 400px;
+    height: 40px;
+    padding: 12px;
+    box-sizing: border-box;
+ }
+
+.add-button {
+  height: 40px;
+  margin-left: 0px;
+  
 }
 
 .container-input button {
@@ -34,8 +49,8 @@
   border-radius: 10px;
   font-size: 14px;
   color: #374151;
+   
 }
-
 
 .items-list {
 
@@ -59,6 +74,7 @@
   border: none;
   border-bottom: 1px solid #ccc;
   gap: 10px;
+ 
 }
 
 .todo-item span {
@@ -67,6 +83,7 @@
 
 .todo-item button {
   margin-left: auto;
+  border: none;
 }
 
 .clear-completed {
@@ -74,7 +91,8 @@
   color: #37b7ee;
   cursor: pointer;
   font-size: 14px;
-  text-align: center;
+  text-align: right;
+  margin-right: 30px;
 }
 
 .clear-completed:hover {
@@ -112,18 +130,6 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Light Theme */
-.app.light {
-  background-color: #E8EDF3;
-  color: #263445;
-}
-
-/* Dark Theme */
-.app.dark {
-  background-color: #252525;
-  color: #F5F5F5;
-}
-
 /* Theme Button */
 .theme-button {
 
@@ -134,16 +140,6 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-}
-
-.app.light .theme-button {
-  background-color: #64748B;
-  color: white;
-}
-
-.app.dark .theme-button {
-  background-color: #FACC15;
-  color: #252525;
 }
 
 
@@ -158,5 +154,56 @@
 
 .items-left {
   display: inline-block;
-  margin: 0;
+   margin-left: 40px;
+  
+}
+
+/* Light Theme */
+.app.light {
+  background-color: #E8EDF3;
+  color: #263445;
+}
+
+/* Dark Theme */
+.app.dark {
+  background-color: #252525;
+  color: #e2e8f0;
+}
+
+
+.app.light .theme-button {
+  background-color: #64748B;
+  color: white;
+}
+
+.app.dark .theme-button {
+  background-color: #FACC15;
+  color: #252525;
+}
+
+.dark .todo-item {
+    
+    color: white;
+}
+
+.dark button{
+  color: #d1d5db;
+}
+
+.dark .container-items-list {
+    background-color: #24272c;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.dark .todo-item button {
+    background-color: #24272c;
+    color: #ffffff;
+    border: none;
+}
+
+.dark .item-input{
+
+    background-color: #24272c;
+    color: #ffffff;
 }
