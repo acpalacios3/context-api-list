@@ -7,9 +7,8 @@ export default function TodoList() {
 
   return (
     <div>
-      <h2>todo list</h2>
-
-      <ul>
+      <div className="container-items-list"> 
+      <ul className="items-list">
         {todos.map(todo => (
           <TodoItem
             key={todo.id}
@@ -17,6 +16,8 @@ export default function TodoList() {
           />
         ))}
       </ul>
+
+      </div>   
 
     </div>
   );

@@ -25,33 +25,20 @@ export default function TestTodos() {
 
   return (
     <form onSubmit={handleSubmit}>
-
-      <h2>Test Todos</h2>
-
+      <div className="container-input">
       <input
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
+        placeholder="What needs to be done?"
         />
 
-      <button onClick={() => addTodo("Study React")}>
+      <button type="submit">
         Add Todo
       </button>
 
-      {/* <button onClick={() => toggleTodo(1)}>
-        Toggle Todo 1
-      </button>
-
-      <button onClick={() => deleteTodo(1)}>
-        delete Todo 1
-      </button>
-
-      <button onClick={() => editTodo(1, "JavaScript")}>
-        edit Todo 1
-      </button> */}
-
-    
-      
+      </div>
+     
     </form>
   );
 }
